@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to blog</title>
+<link href="{{context}}/css/screen.css" rel="stylesheet" type="text/css"></link>
+</head>
+<body>
+	<div class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+			<ul class="nav">
+				<li><a href="{{context}}/">Home</a></li>
+				<li><a href="{{context}}/about">About</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="container">
+		<h1>Welcome to blog</h1>
+		
+{% block content %}
+
+{% endblock %}
+
+	</div>
+	<footer>Copyright ...</footer>
+</body>
+</html>
