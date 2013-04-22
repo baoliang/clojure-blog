@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>编辑博客</title>
+
+    <link href="/markdown/jQuery/jquery-ui-1.10.2.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/markdown/CodeMirror/lib/codemirror.css" media="all" rel="stylesheet" type="text/css" />
+       <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/css/print.css" type="text/css" media="print">
+    <!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+    <!-- Import fancy-type plugin for the sample page. -->
+    <link rel="stylesheet" href="/css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+    <link href="/markdown/css.css" media="all" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://upcdn.b0.upaiyun.com/libs/jqueryui/jquery.ui-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/markdown/jQuery/jquery.base64.min.js"></script>
+
+    <script type="text/javascript" src="/markdown/CodeMirror/lib/codemirror.js"></script>
+
+    <script type="text/javascript" src="/markdown/CodeMirror/addon/mode/overlay.js"></script>
+
+    <script type="text/javascript" src="/markdown/CodeMirror/addon/selection/active-line.js"></script>
+
+    <script type="text/javascript" src="/markdown/CodeMirror/addon/search/searchcursor.js"></script>
+    <script type="text/javascript" src="/markdown/CodeMirror/addon/search/match-highlighter.js"></script>
+
+    <script type="text/javascript" src="/markdown/codemirror.plugins.js"></script>
+
+    <script type="text/javascript" src="/markdown/CodeMirror/mode/xml/xml.js"></script>
+    <script type="text/javascript" src="/markdown/CodeMirror/mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="/markdown/CodeMirror/mode/ruby/ruby.js"></script>
+    <script type="text/javascript" src="/markdown/CodeMirror/mode/markdown/markdown.js"></script>
+    <script type="text/javascript" src="/markdown/CodeMirror/mode/gfm/gfm.js"></script>
+
+    <script type="text/javascript" src="/markdown/marked/lib/marked.js"></script>
+
+    <script type="text/javascript" src="/markdown/keymaster/keymaster.min.js"></script>
+
+    <script type="text/javascript" src="/markdown/jquery.plugins.js"></script>
+
+    <script type="text/javascript" src="/markdown/js.js"></script>
+  </head>
+  <body>
+
+      <form action="/post-blog" method="POST">
+        <div id="markdown-input">
+       
+          <div id="markdown-input">
+           
+            <textarea class="markdown-input" name="content" data-markdown-preview="#markdown-preview" cols="40" rows="20"><(get  params :content "")></textarea>
+          </div>
+       
+        </div>
+        <div id="markdown-preview" class="markdown-body">
+      
+        </div>
+        <div id="download-box">
+          <p>
+            <label for="title">标题</label>
+            <br>
+            <input type="text" name="title" id="title" value="<(get params :title "")>" class="title">
+          </p>
+          <p>
+            <br>
+            <label for="tag">标签</label>
+            <br>
+            <id>
+            <input type="hidden" name="id" value="<(get params :id "")>">
+            <input type="text" value="<(get params :tag "")>" name="tag" id="tag" class="title">
+          </p>
+          <p>  
+            <br>
+            <input type="submit" value="保存">
+            <a href="/admin" >返回</a>
+          </p>
+      </div>
+    
+      </form>
+
+      
+
+  </body>
+</html>
+
+

@@ -1,0 +1,58 @@
+
+{% extends "blog/views/templates/admin/base.html" %}
+{%block style %}
+ 
+{%endblock%}
+{% block content %}
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            #
+          </th>
+          <th>
+            Title
+          </th>
+          <th>
+            Tag
+          </th>
+          <th>
+            Created at
+          </th>
+          <th>
+            
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <(for [l (:contents params)]">
+        <tr>
+          <td>
+            <(:id l)>
+          </td>
+
+          <td>
+            <(:title l)>
+          </td>
+
+
+          <td>
+            <(:tag l)>
+          </td>
+          <td>
+              <(str (:created-at l))>
+          </td>
+          <td>
+            <a href="/blog/delete?id=<(:id l)>">Delete</a>
+            <a href="/blog/edit?id=<(:id l)>">Edit</a>
+          </td>
+        </tr>
+        <")>
+      </tbody>
+    <table>
+
+
+  </div> 
+{%endblock%}
