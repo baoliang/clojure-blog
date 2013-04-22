@@ -42,3 +42,5 @@ CREATE TABLE users
   pass character varying(100),
   id bigserial NOT NULL
 )
+
+

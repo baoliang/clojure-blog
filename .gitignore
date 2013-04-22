@@ -1,0 +1,11 @@
+pom.xml
+*jar
+/lib/
+/classes/
+/targets/
+.lein-deps-sum
+/checkouts
+*.jar
+*.class
+/.lein-*
+/.env
