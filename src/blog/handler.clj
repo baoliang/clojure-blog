@@ -1,7 +1,9 @@
 (ns blog.handler
   (:use blog.routes.home
         compojure.core)
-  (:require [noir.util.middleware :as middleware]
+  (:require [noir.util.middleware :as middleware] 
+            [noir.session :as session]
+            [noir.response :as res]
             [blog.models.schema :as schema]
             [compojure.route :as route]))
 
@@ -15,7 +17,6 @@
    an app server such as Tomcat
    put any initialization code here"
   []
-  (if-not (schema/initialized?) (schema/create-tables))
   (println "blog started successfully..."))
 
 (defn destroy
@@ -26,9 +27,22 @@
 
 ;;append your application routes to the all-routes vector
 (def all-routes [home-routes app-routes])
+(def admin-uri-l ["/admin"
+                  "/post-blog"
+                  "/blog/delete"
+                  "/blog/detail"
+                  ])
+(defn admin-auth [handler]
+  (fn [request]
+      (if (and (contains? admin-uri-l (request :uri))
+               (= nil (session/get :user)))
+        (res/redirect "/admin-blog")
+        (handler request))))
+
 
 (def app (-> all-routes
              middleware/app-handler
+             admin-auth
              ;;add your middlewares here
              ))
 

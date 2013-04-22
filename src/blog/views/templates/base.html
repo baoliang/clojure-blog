@@ -1,26 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Welcome to blog</title>
-<link href="{{context}}/css/screen.css" rel="stylesheet" type="text/css"></link>
+  <meta charset="utf-8" />
+
+   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/css/print.css" type="text/css" media="print">
+    <!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+     <link rel="stylesheet" href="/css/baoliang.css" type="text/css">
+  {% block style %}
+
+  {% endblock %}
+
 </head>
 <body>
-	<div class="navbar navbar-fixed-top navbar-inverse">
-		<div class="navbar-inner">
-			<ul class="nav">
-				<li><a href="{{context}}/">Home</a></li>
-				<li><a href="{{context}}/about">About</a></li>
-			</ul>
-		</div>
-	</div>
-	<div class="container">
-		<h1>Welcome to blog</h1>
-		
-{% block content %}
+  <div id="wrap">
+    <div class="container">
+      <div class="page-header">
+        <h2><(get params :title "While there is life there is hope.")></h2>
+        <hr>
+      </div>
 
-{% endblock %}
+     
+    </div>
+    <div class="container">
+          {% block content %}
 
-	</div>
-	<footer>Copyright ...</footer>
+          {% endblock %}
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <p class="muted credit">Designed and built with all the <a href="http://weibo.com/baoliangstar">@张保良-star</a> jfreebird@gmail.com</p>
+    </div>
+  </div>
 </body>
 </html>
+
+
+{% block js %}
+
+{% endblock %}

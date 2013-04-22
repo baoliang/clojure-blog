@@ -1,11 +1,13 @@
-
 {% extends "blog/views/templates/base.html" %}
-
-
-
-{% block content %}
-
-{{content}}
-
-{% endblock %}
-
+{%block content%}
+<div>
+  <ul>
+    <(for [l (:content-l params)]">
+    <li>
+      <a href="/detail?id=<(:id l)>"><(:title l)> </a>
+       <(str (:created-at l))>
+    </li>
+    <")>
+  </ul>
+</div>
+{%endblock%}

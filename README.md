@@ -1,19 +1,44 @@
-# blog
+# Blog
+### Language 
+Server clojure 
+[Clojure](http://clojure.org)
 
-FIXME
+Web Ssrver 
+[Ring](https://github.com/ring-clojure/ring)
 
-## Prerequisites
+Web framwork 
+[Luminusweb](http://www.luminusweb.net/)
 
-You will need [Leiningen][1] 2.0 or above installed.
+Template
+[Fleet](https://github.com/Flamefork/fleet)     [Clabango](https://github.com/danlarkin/clabango)
 
-[1]: https://github.com/technomancy/leiningen
 
-## Running
+ORM [SQLkorma](http://sqlkorma.com/)
 
-To start a web server for the application, run:
+MarkDownEdior [https://github.com/miclle/Markdown-Editor](https://github.com/miclle/Markdown-Editor)
+### Storeage
+[Postgresql](http://postgresql.org)
 
-    lein ring server
+### Install 
+Create database use follow sql in postgresql!
+CREATE DATABASE blog;
 
-## License
+CREATE TABLE content
+(
+  title text,
+  content text,
+  "created-at" timestamp with time zone,
+  "updated-at" timestamp with time zone,
+  tag text,
+  id bigserial NOT NULL
+)
 
-Copyright © 2013 FIXME
+CREATE TABLE users
+(
+  email character varying(30),
+  admin boolean,
+  last_login time without time zone,
+  is_active boolean,
+  pass character varying(100),
+  id bigserial NOT NULL
+)

@@ -6,12 +6,13 @@
 (defdb db schema/db-spec)
 
 (defentity users)
-
-(defn create-user [user]
-  (insert users
-          (values user)))
+(defentity content)
+(defentity kv)
 
 (defn get-user [id]
-  (first (select users
-                 (where {:id id})
-                 (limit 1))))
+  (first  (select 
+    users
+    (where {:id id})
+    (limit 1))))
+
+

@@ -9,6 +9,7 @@
    [com.taoensso/timbre "1.5.2"]
    [com.taoensso/tower "1.2.0"]
    [markdown-clj "0.9.19"]
+   [fleet "0.10.1"]
    [org.clojure/java.jdbc "0.2.3"]
    [org.clojars.kbarber/postgresql "9.2-1002.jdbc4"]
    [korma "0.3.0-RC2"]
