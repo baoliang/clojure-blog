@@ -16,16 +16,18 @@
   (layout/render "home.html" {:content-l (select db/content)}))
 
 
-(defn post-blog [id title tag content]
+(defn post-blog [id title tag content md]
   (if (= id "")
     (insert db/content 
       (values [{:title title 
                 :tag tag 
+                :md md
                 :content content
                 :created-at (sql-now)}]))
     (update db/content
       (set-fields {:title title 
                    :tag tag 
+                   :md md
                    :content content
                    :updated-at (sql-now)})
       (where {:id (read-string id)})))
@@ -35,7 +37,7 @@
   (let [blog (first (select db/content 
                                     (where {:id (read-string id)})))]
     (layout/render  "detail.html"
-      {:content (md/md-to-html-string (:content blog))
+      {:content  (:content blog)
        :title (:title blog)})))
 
 
@@ -92,7 +94,7 @@
   (GET "/blog/delete" [id] (delete-blog id))
   (GET "/admin-blog" [] (layout/render "admin/login.html"))
   (GET "/post-blog" [](layout/render "post-blog.html"))
-  (POST "/post-blog" [id title tag content] (post-blog id title tag content))
+  (POST "/post-blog" [id title tag content md] (post-blog id title tag content md))
   (POST "/admin-login-auth" [email pass] (admin-login-auth email pass))
   (GET "/detail" [id] (get-blog-by-id id))
   (GET "/admin-quit" [] (admin-quit)))

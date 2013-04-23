@@ -50,7 +50,7 @@
        
           <div id="markdown-input">
            
-            <textarea class="markdown-input" name="content" data-markdown-preview="#markdown-preview" cols="40" rows="20"><(get  params :content "")></textarea>
+            <textarea class="markdown-input" id="md" name="content" data-markdown-preview="#markdown-preview" cols="40" rows="20"><(str (get  params :md ""))></textarea>
           </div>
        
         </div>
@@ -61,19 +61,19 @@
           <p>
             <label for="title">标题</label>
             <br>
-            <input type="text" name="title" id="title" value="<(get params :title "")>" class="title">
+            <input type="text" name="title" id="title" value="<(str (get params :title ""))>" class="title">
           </p>
           <p>
             <br>
             <label for="tag">标签</label>
             <br>
             <id>
-            <input type="hidden" name="id" value="<(get params :id "")>">
-            <input type="text" value="<(get params :tag "")>" name="tag" id="tag" class="title">
+            <input type="hidden" name="id" id="id" value="<(get params :id "")>">
+            <input type="text" id="tag" value="<(get params :tag "")>" name="tag" id="tag" class="title">
           </p>
           <p>  
             <br>
-            <input type="submit" value="保存">
+            <input type="button" id="save" value="保存">
             <a href="/admin" >返回</a>
           </p>
       </div>
@@ -84,5 +84,13 @@
 
   </body>
 </html>
+<script>
+$("#save").click(function(){
+  $.post("/post-blog",{"content":$("#markdown-preview").html(),"title":$("#title").val(),"tag":$("#tag").val(), "id":$("#id").val(),"md":$("#md").val()},function(){alert("成功！")});
 
+
+});
+
+
+</script>
 

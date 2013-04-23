@@ -27,6 +27,7 @@ CREATE TABLE content
 (
   title text,
   content text,
+  md text,
   "created-at" timestamp with time zone,
   "updated-at" timestamp with time zone,
   tag text,
