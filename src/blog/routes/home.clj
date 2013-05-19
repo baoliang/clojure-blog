@@ -87,6 +87,7 @@
 
 (defroutes home-routes
   (GET "/" [] (home-page))
+  (GET "/resume" [] (layout/render "resume.html"))
   (GET "/admin" [] (layout/render "admin/home.html"  {:contents (select db/content)}))
   (GET "/set-init-user" [] (set-init-user))
   (POST "/set-init-user" [email pass] (set-init-user-post email pass))
