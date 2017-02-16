@@ -3,7 +3,7 @@
 Server clojure 
 [Clojure](http://clojure.org)
 
-Web Ssrver 
+Web Server 
 [Ring](https://github.com/ring-clojure/ring)
 
 Web framwork 
